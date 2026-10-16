@@ -6,4 +6,5 @@ dist
 .impeccable/review
 preview-*.png
 *-prototype-demo.mp4
+*.tsbuildinfo
 
