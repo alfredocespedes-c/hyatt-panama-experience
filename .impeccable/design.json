@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T14:30:00Z",
+  "title": "Design System: Arrival Architecture",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "neutral", "displayName": "Deep Mineral Ink", "canonical": "#07131D", "tonalRamp": ["#07131D", "#102331", "#243946", "#455761", "#718087", "#A3ADB1", "#D2D7D8", "#F1F3F3"] },
+      "limestone": { "role": "neutral", "displayName": "Warm Limestone", "canonical": "#F1EEE4", "tonalRamp": ["#26241F", "#47443D", "#6E6A61", "#969187", "#BDB8AE", "#D8D4CA", "#E9E6DC", "#F7F5EF"] },
+      "mineral": { "role": "neutral", "displayName": "Mineral Blue-Black", "canonical": "#0D2435", "tonalRamp": ["#07131D", "#0D2435", "#18394F", "#31536A", "#557187", "#8198A8", "#B5C4CD", "#E8EFF2"] },
+      "silver": { "role": "secondary", "displayName": "Brushed Silver", "canonical": "#9BA7AD", "tonalRamp": ["#1C2428", "#344047", "#516069", "#708088", "#9BA7AD", "#B9C1C5", "#D7DCDE", "#F1F3F4"] },
+      "accent": { "role": "primary", "displayName": "Projection Blue", "canonical": "#1677FF", "tonalRamp": ["#061B3D", "#0A326E", "#0E4CA6", "#1264D6", "#1677FF", "#579CFF", "#9BC4FF", "#E5F0FF"] },
+      "error": { "role": "error", "displayName": "Recovery Red", "canonical": "#9B251A", "tonalRamp": ["#32100D", "#5C1913", "#862119", "#B63528", "#D65D50", "#E99187", "#F5C5C0", "#FDEDEA"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Architectural Display", "purpose": "Arrival title, each question, and completion statement." },
+      "body": { "displayName": "Response Text", "purpose": "Inputs, controls, and supporting copy." },
+      "label": { "displayName": "Measured Label", "purpose": "Location, status, masthead, and progress metadata." }
+    },
+    "shadows": [{ "name": "projection-depth", "value": "0 16px 42px rgba(0,0,0,.42)", "purpose": "The single soft offset shadow used on the ballroom projection plane." }],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Projection expansion and controls." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Continuous camera and model-state movement." },
+      { "name": "journey", "value": "7600ms", "purpose": "Full aerial-to-ballroom camera path." }
+    ],
+    "breakpoints": [{ "name": "mobile-tight", "value": "430px" }, { "name": "layout-wide", "value": "760px" }]
+  },
+  "components": [
+    {
+      "name": "Projection Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Square architectural action with an authored line arrow.",
+      "html": "<button class=\"ds-projection-action\">Begin the experience<span aria-hidden=\"true\"></span></button>",
+      "css": ".ds-projection-action{min-height:56px;width:100%;padding:0 20px;border:1px solid #F1EEE4;border-radius:1px;background:#F1EEE4;color:#07131D;font:670 1rem 'Albert Sans',sans-serif;display:flex;align-items:center;justify-content:space-between;transition:transform 150ms cubic-bezier(.23,1,.32,1)}.ds-projection-action span{width:24px;height:1px;background:#1677FF}.ds-projection-action:active{transform:scale(.97)}.ds-projection-action:focus-visible{outline:2px solid #64A6FF;outline-offset:4px}"
+    },
+    {
+      "name": "Answer Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Unboxed answer line that turns projection blue on focus.",
+      "html": "<label class=\"ds-answer\">Hotel Name<input placeholder=\"Type your answer\"></label>",
+      "css": ".ds-answer{display:grid;gap:20px;color:#07131D;font:440 2rem 'Bodoni Moda',serif}.ds-answer input{min-height:56px;padding:14px 0 17px;border:0;border-bottom:1px solid #69747A;border-radius:0;background:#F1EEE4;color:#07131D;font:450 1.2rem 'Albert Sans',sans-serif}.ds-answer input:focus-visible{outline:0;border-bottom-color:#1677FF;box-shadow:0 2px 0 #1677FF}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Arrival Architecture",
+    "overview": "The architectural approach, ballroom projection, and one-question response flow behave as one continuous room.",
+    "keyCharacteristics": ["Continuous procedural 3D arrival", "Warm limestone against mineral blue-black", "Projection rectangles and one-pixel rules", "One answer per scene"],
+    "rules": [
+      { "name": "Arrival Is the Interface", "body": "The model and form stay in one spatial narrative.", "section": "layout" },
+      { "name": "One Controlled Light", "body": "Projection blue is reserved for progress, focus, and precise light.", "section": "colors" }
+    ],
+    "dos": ["Do preserve continuity between the model, projection plane, and form.", "Do keep reduced-motion and CSS/SVG fallback routes complete."],
+    "donts": ["Don't add logos, copyrighted photography, gradients, glass, or card grids.", "Don't introduce extra response fields or rounded SaaS components."]
+  }
+}
